@@ -8,7 +8,6 @@ def get_db_connection():
     return conn
 
 try:
-    # Conectar ao banco de dados (ou criar se não existir)
     conn = get_db_connection()
     c = conn.cursor()
 
@@ -24,13 +23,18 @@ try:
     ''')
     print("Tabela 'vinhos' criada com sucesso ou já existente.")
 
-    # Inserir alguns vinhos de exemplo com caminhos de imagens e descrições
+    # Inserir vinhos de exemplo apenas se não existirem
     vinhos_exemplo = [
         ('Vinho Tinto', 50.00, 'vinho_tinto.jpg', 'Um vinho tinto encorpado com notas de frutas vermelhas.'),
         ('Vinho Branco', 40.00, 'vinho_branco.jpg', 'Um vinho branco leve e refrescante.'),
         ('Vinho Rosé', 35.00, 'vinho_rose.jpg', 'Um vinho rosé suave e frutado.')
     ]
-    c.executemany("INSERT INTO vinhos (nome, preco, imagem, descricao) VALUES (?, ?, ?, ?)", vinhos_exemplo)
+
+    for vinho in vinhos_exemplo:
+        c.execute("SELECT COUNT(*) FROM vinhos WHERE nome = ?", (vinho[0],))
+        if c.fetchone()[0] == 0:  # Só insere se não existir
+            c.execute("INSERT INTO vinhos (nome, preco, imagem, descricao) VALUES (?, ?, ?, ?)", vinho)
+
     print("Vinhos de exemplo inseridos com sucesso.")
 
     # Criar tabela de usuários com o campo 'role'
@@ -40,18 +44,23 @@ try:
             username TEXT NOT NULL UNIQUE,
             password TEXT NOT NULL,
             role TEXT DEFAULT 'user',  -- Campo para definir o papel do usuário
-            imagem BLOB  -- Nova coluna para salvar imagens
+            imagem BLOB NULL  -- Nova coluna para salvar imagens (pode ser nula)
         )
     ''')
     print("Tabela 'usuarios' criada com sucesso ou já existente.")
 
-    # Inserir alguns usuários de exemplo, incluindo um admin
+    # Inserir usuários de exemplo, evitando duplicatas
     usuarios_exemplo = [
         ('admin', generate_password_hash('admin123'), 'admin'),
         ('user1', generate_password_hash('user123'), 'user'),
         ('user2', generate_password_hash('user456'), 'user')
     ]
-    c.executemany("INSERT INTO usuarios (username, password, role) VALUES (?, ?, ?)", usuarios_exemplo)
+
+    for usuario in usuarios_exemplo:
+        c.execute("SELECT COUNT(*) FROM usuarios WHERE username = ?", (usuario[0],))
+        if c.fetchone()[0] == 0:  # Só insere se o username não existir
+            c.execute("INSERT INTO usuarios (username, password, role) VALUES (?, ?, ?)", usuario)
+
     print("Usuários de exemplo inseridos com sucesso.")
 
     conn.commit()
