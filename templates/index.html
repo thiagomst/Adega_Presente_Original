@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+<!-- Finalizado -->
 
 <head>
     <meta charset="UTF-8">
@@ -426,10 +427,10 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="./index.html">Página Inicial</a></li>
-                            <li><a href="sobre.html">Sobre Nós</a></li>
-                            <li><a href="./vinhos.html">Produtos</a></li>
-                            <li><a href="contato.html">Contato</a></li>
+                            <li><a href="{{ url_for('index') }}">Página Inicial</a></li>
+                            <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                            <li><a href="{{ url_for('vinhos') }}">Produtos</a></li>
+                            <li><a href="{{ url_for('contato') }}">Contato</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -502,7 +503,7 @@
 
     <nav class="menu-categorias">
         <a href="{{ url_for('espumantes') }}" class="categoria">Espumantes</a>
-        <a href="{{ url_for('vinho_branco') }}" class="categoria">Vinho Branco</a>
+        <a href="{{ url_for('vinhos') }}" class="categoria">Vinho Branco</a>
         <a href="{{ url_for('vinho_rose') }}" class="categoria">Vinho Rose e Laranja</a>
         <a href="{{ url_for('vinho_tinto') }}" class="categoria">Vinho Tinto</a>
         <a href="{{ url_for('embalagens') }}" class="categoria">Embalagens Artesanais</a>

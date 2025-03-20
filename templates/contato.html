@@ -86,22 +86,17 @@
         </div>
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
-                        <a href="./index.html"><img src="img/logo1.png" alt="Descrição da imagem" width="150"
-                                height="150"></a>
-
-                    </div>
+                <div class="header__logo">
+                    <a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='img/logo1.png') }}"
+                            alt="Descrição da imagem" width="150" height="150"></a>
                 </div>
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <ul>
-                                <li class=""><a href="./index.html">Página Inicial</a></li>
-                                <li class=""><a href="sobre.html">Sobre Nós</a></li>
-                                <li class=""><a href="./vinhos.html">Produtos</a></li>
-                                <li class="active"><a href="contato.html">Contato</a></li>
-                            </ul>
+                            <li><a href="{{ url_for('index') }}">Página Inicial</a></li>
+                            <li><a href="{{ url_for('sobre') }}">Sobre Nós</a></li>
+                            <li><a href="{{ url_for('vinhos') }}">Produtos</a></li>
+                            <li><a href="{{ url_for('contato') }}">Contato</a></li>
                         </ul>
                     </nav>
                 </div>

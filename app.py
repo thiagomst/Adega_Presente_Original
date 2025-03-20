@@ -239,9 +239,13 @@ def finalizar_compra():
     session.modified = True
     return render_template('finalizar.html')
 
-@app.route('/espumantes')  # Define the missing route
+@app.route('/espumantes')
 def espumantes():
-    return render_template('espumantes.html')  
+    return render_template('espumantes.html')
+
+@app.route('/vinhos')  # Define the missing route
+def vinhos():
+    return render_template('vinhos.html') 
 
 @app.route('/vinho_branco')
 def vinho_branco():
