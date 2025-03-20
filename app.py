@@ -271,6 +271,15 @@ def sobre():
 def quem_somos():
     return render_template('quem_somos.html')
 
+@app.route('/contato')
+def contato():
+    return render_template('contato.html')
+
+@app.route('/vinho_rose')
+def vinhos_rose():
+    return render_template('vinho_rose.html')
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

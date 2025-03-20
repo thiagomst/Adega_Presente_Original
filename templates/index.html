@@ -750,88 +750,9 @@
 
 
 
-    <!-- Footer Section Begin -->
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-6 col-sm-6">
-                    <div class="footer__about">
-                        <div class="footer__logo">
-                            <a href="#"><img src="img/footer-logo.png" alt=""></a></br>
 
-                            <p>CNPJ: 17.269.787/0001-94 </p>
-                        </div>
-
-                        <p> Olá!!! Seja muito bem-vind@!!! Foi de nossa alegria em celebrar a vida que nasceu a ideia de
-                            oferecer uma opção para tornar o ato de ‘presentear’ um momento inesquecível.</p>
-                        <a href="#"><img src="img/payment.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Produtos</h6>
-                        <ul>
-                            <li><a href="{{ url_for('espumantes') }}">Espumantes</a></li>
-                            <li><a href="{{ url_for('vinho_branco') }}">Vinho Branco</a></li>
-                            <li><a href="{{ url_for('vinho_rose') }}">Vinho Rose e Laranja</a></li>
-                            <li><a href="{{ url_for('vinho_tinto') }}">Vinho Tinto</a></li>
-                            <li><a href="{{ url_for('embalagens') }}">Embalagens</a></li>
-                            <li><a href="{{ url_for('novidades') }}">Novidades</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <h6>Adega</h6>
-                        <ul>
-                            <li><a href="sobre.html">Sobre Nós</a></li>
-                            <li><a href="https://drive.google.com/drive/folders/14PDcnfqLvOx29E7UX5KuvZYn4GIrLh24">Catalogos
-                                    de Preços</li>
-                            <li><a href="https://linktr.ee/adegapresente">Catálogos de produtos</a></li>
-                            <li><a
-                                    href="https://api.whatsapp.com/send/?phone=556196127475&text&type=phone_number&app_absent=0">Comprar
-                                    Agora</a></li>
-                            <li><a href="https://www.instagram.com/p/C54Gw1kO5C6/?img_index=1">Entrega</a></li>
-                            <li><a href="contato.html">Contato</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-3 col-sm-6">
-                    <div class="footer__widget">
-                        <a href="https://wa.me/556196127475" target="_blank" class="social-icon"><i
-                                class="fab fa-whatsapp"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61559981980043" target="_blank"
-                            class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/adegapresente/" target="_blank" class="social-icon"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@adegapresente" target="_blank" class="social-icon"><i
-                                class="fab fa-tiktok"></i></a>
-                        <p></br>É proibida a venda de bebidas alcóolicas para menores de 18 anos. Beber menos é beber
-                            melhor.
-                        </p>
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="footer__copyright__text">
-                        <p>Copyright ©
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script>
-                            Todos os direitos reservados
-
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- Footer Section End -->
-
+    <!-- Incluir o footer -->
+    {% include 'footer.html' %}
 
     <!-- Js Plugins -->
     <script src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
